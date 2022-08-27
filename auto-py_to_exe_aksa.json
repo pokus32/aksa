@@ -1,0 +1,237 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "C:/other/aksaa/main.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": false
+  },
+  {
+   "optionDest": "console",
+   "value": false
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "C:/other/aksaa/clock-icon-free-28.ico"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": false
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/sqlite.db;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/clock-icon-free-28.ico;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/logo \u2014 \u043a\u043e\u043f\u0438\u044f.jpg;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/logo.jpg;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/logo_kv.jpg;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/ClientLayout.kv;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/FirstLayout.kv;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/start.kv;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/widgets.kv;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/wingding.ttf;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/wingding2.ttf;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/other/aksaa/wingding3.ttf;."
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "pkg_resources.py2_warn"
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libFLAC-8.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libfreetype-6.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libjpeg-9.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libmodplug-1.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libmpg123-0.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libogg-0.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libopus-0.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libopusfile-0.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libpng16-16.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libtiff-5.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libvorbis-0.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libvorbisfile-3.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/libwebp-7.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.FLAC.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.freetype.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.jpeg.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.modplug.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.mpg123.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.ogg-vorbis.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.opus.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.opusfile.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.png.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.tiff.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.webp.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/LICENSE.zlib.txt;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/SDL2.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/SDL2_image.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/SDL2_mixer.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/SDL2_ttf.dll;."
+  },
+  {
+   "optionDest": "datas",
+   "value": "C:/Users/User/kivy_venv/share/sdl2/bin/zlib1.dll;."
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

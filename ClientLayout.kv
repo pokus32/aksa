@@ -1,0 +1,507 @@
+# -*- coding: utf-8 -*-
+#:set norm_background_color (0.90,0.89,0.82,1)
+
+<ClientLayout>:
+    scroll_layout: scroll_layout
+    input_area: input_area
+    data_input: data_input
+    main_label: main_label
+    GridLayout:
+        orientation : 'rl-tb'
+        cols: 3
+        size_hint_y : 1
+        BoxLayout:
+            orientation: 'vertical'
+            ## levaya pustota
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x : None
+            width : 700
+            ## seredina
+            BoxLayout:
+                size_hint_y : None
+                height : 69
+                spacing : 1
+                padding : 1
+                canvas:
+                    Color:
+                        rgba: (0, 0.1, 0.25, 1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    AsyncImage:
+                        source: 'logo_kv.jpg'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: main_label
+                        font_size: '21sp'
+                        color: 0,0,0,1
+                        text : u'MUSTERI LITESI'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    Label:
+                        font_size: '25sp'
+                        color: 0,0,0,1
+                        text: ''
+            GridLayout:
+                id: input_area
+                size_hint_y: None
+                height: self.minimum_height
+                rows: 1
+                DataInput:
+                    id: data_input
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                #pustota
+            ScrollView:
+                id: scroll_layout
+                size_hint : (1, 1)
+                do_scroll_x: False
+                do_scroll_y: True
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                #pustota
+        BoxLayout:
+            orientation: 'horizontal'
+            ## pravaya pustota
+
+<DataInput>:
+    size_hint_y: None
+    height: self.minimum_height
+    cols: 1
+    spacing: 1
+    new_button: new_button
+    save_button: save_button
+    name_input: name_input
+    client_name_input: client_name_input
+    client_surname_input: client_surname_input
+    client_phone_input :client_phone_input
+    province_input: province_input
+    district_input: district_input
+    locality_input: locality_input
+    street_input: street_input
+    substreet_input: substreet_input
+    number_input: number_input
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 1
+        canvas:
+            Color:
+                rgba: norm_background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            id: name_input
+            text_size : self.size
+            size_hint_y: None
+            height: 37
+            halign : "center"
+            valign : "middle"
+            color: 0,0,0,1
+            text : ''
+            write_tab: False
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 1
+        canvas:
+            Color:
+                rgba: norm_background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            text_size : self.size
+            size_hint_y: None
+            height: 27
+            halign : "center"
+            valign : "middle"
+            color: 0,0,0,1
+            text : 'YETKILI KISI BILGILERI'
+    GridLayout:
+        cols: 3
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: 1
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text_size : self.size
+                size_hint_y: None
+                height: 27
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'ADI'
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text_size : self.size
+                size_hint_y: None
+                height: 27
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'SOYADI'
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text_size : self.size
+                size_hint_y: None
+                height: 27
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'TELEFON'
+    GridLayout:
+        cols: 3
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: 1
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: client_name_input
+                text_size : self.size
+                size_hint_y: None
+                height: 37
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : ''
+                write_tab: False
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: client_surname_input
+                text_size : self.size
+                size_hint_y: None
+                height: 37
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : ''
+                write_tab: False
+        GridLayout:
+            rows: 1
+            size_hint_y: None
+            height: self.minimum_height
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: client_phone_input
+                text_size : self.size
+                size_hint_y: None
+                height: 37
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : ''
+                write_tab: False
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 2
+        spacing: 1
+        GridLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            rows: 1
+            canvas:
+                Color:
+                    rgba: norm_background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text_size : self.size
+                size_hint_y: None
+                height: 27
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'FIRMA BILGILERI'
+        GridLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            cols: 1
+            spacing: 1
+            GridLayout:
+                size_hint_y: None
+                height: self.minimum_height
+                rows: 1
+                spacing: 1
+                canvas:
+                    Color:
+                        rgba: norm_background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'IL:'
+                    size_hint_x: None
+                    width: 50
+                TextInput:
+                    id: province_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'ILCE:'
+                    size_hint_x: None
+                    width: 50
+                TextInput:
+                    id: district_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'SEMT:'
+                    size_hint_x: None
+                    width: 50
+                TextInput:
+                    id: locality_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+            GridLayout:
+                size_hint_y: None
+                height: self.minimum_height
+                rows: 1
+                spacing: 1
+                canvas:
+                    Color:
+                        rgba: norm_background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'CADDE:'
+                    size_hint_x: None
+                    width: 70
+                TextInput:
+                    id: street_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'SOKAK:'
+                    size_hint_x: None
+                    width: 70
+                TextInput:
+                    id: substreet_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+                Label:
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'NUMARA:'
+                    size_hint_x: None
+                    width: 75
+                TextInput:
+                    id: number_input
+                    text_size : self.size
+                    size_hint_y: None
+                    height: 37
+                    size_hint_x: None
+                    width: 45
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : ''
+                    write_tab: False
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 1
+        spacing: 2
+        Button:
+            id: new_button
+            # client_id: 0
+            size_hint_x: None
+            width: 100
+            text: 'YENI'
+        BoxLayout:
+            size_hint_y: None
+            height: 37
+        Button:
+            id: save_button
+            client_id: 0
+            size_hint_x: None
+            width: 100
+            text: 'TAMAM'
+
+<ClientRowLayout>:
+    size_hint_y : None
+    height : 37
+    norm_bg_color: (0.90,0.89,0.82,1)
+    client_id: ''
+    client_name: ''
+    name_lbl: name_lbl
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ClicablLabel:
+                id: id_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : root.client_id
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: ''
+                size_hint_x: None
+                width: 10
+            ClicablLabel:
+                id: name_lbl
+                data: ()
+                text_size : self.size
+                halign : "left"
+                valign : "middle"
+                color: 0,0,0,1
+                text : root.client_name

@@ -1,0 +1,857 @@
+# -*- coding: utf-8 -*-
+#:kivy 1.10.1
+#:import datetime datetime
+#:set col_1 150
+#:set col_2 165
+#:set norm_background_color (0.90,0.89,0.82,1) #(0.9, 0.9, 0.9, 0.9)
+#:import AsyncImage kivy.uix.image
+
+
+<ClicablLabel@ButtonBehavior+Label>:
+
+
+<ButImage@ButtonBehavior+AsyncImage>:
+    FloatLayout:
+
+
+<CustomWidthTabb@TabbedPanelItem>
+    width: self.texture_size[0]
+    padding: 10, 0
+    size_hint_x: None
+
+
+<Header>:
+    GridLayout:
+        cols: 1
+        BoxLayout:
+            size_hint_y : None
+            height : 50
+            spacing : 1
+            padding : 1
+            canvas:
+                Color:
+                    rgba: (0, 0.1, 0.25, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: norm_background_color 
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                size_hint_x : None
+                width : 100
+                AsyncImage:
+                    source: 'eologo_bej.png'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: norm_background_color 
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: main_label
+                    font_size: '25sp'
+                    color: 0,0,0,1
+                    text : u'\u00DCR\u00DCN YAP\u0049LAB\u0130L\u0130RL\u0130K RAPORU'
+            BoxLayout:
+                size_hint_x: None
+                width: 130
+                # canvas:
+                #     Color:
+                #         rgba: norm_background_color 
+                #     Rectangle:
+                #         size: self.size
+                #         pos: self.pos
+                BoxLayout:
+                    orientation: 'vertical'
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        text_size : self.size
+                        halign : "left"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text : " Rapor NO: 4587"
+                        font_size: '15sp'
+                    Label:
+                        text_size : self.size
+                        halign : "left"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text : " Tarih:" #+ root.cur_date
+                        font_size: '15sp'
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # # canvas:
+        # #     Color:
+        # #         rgba: (0, 0, 0, 1)
+        # #     Rectangle:
+        # #         size: self.size
+        # #         pos: self.pos
+        # BoxLayout:
+        #     spacing : 1
+        #     canvas:
+        #         Color:
+        #             rgba: (0, 0.1, 0.25, 1)
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'M\u00DC\u015ETER\u0130 F\u0130RMA:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'TEKL\u0130F \u0130STEME TAR\u0130H\u0130:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # # canvas:
+        # #     Color:
+        # #         rgba: (0, 0, 0, 1)
+        # #     Rectangle:
+        # #         size: self.size
+        # #         pos: self.pos
+        # BoxLayout:
+        #     spacing : 1
+        #     canvas:
+        #         Color:
+        #             rgba: (0, 0.1, 0.25, 1)
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'\u00DCR\u00DCN KODU:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'TALEP M\u0130KTAR\u0049:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # # canvas:
+        # #     Color:
+        # #         rgba: (0, 0, 0, 1)
+        # #     Rectangle:
+        # #         size: self.size
+        # #         pos: self.pos
+        # BoxLayout:
+        #     spacing : 1
+        #     canvas:
+        #         Color:
+        #             rgba: (0, 0.1, 0.25, 1)
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'\u00DCR\u00DCN AD\u0049:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'MALZEME C\u0130NS\u0130:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # # canvas:
+        # #     Color:
+        # #         rgba: (0, 0, 0, 1)
+        # #     Rectangle:
+        # #         size: self.size
+        # #         pos: self.pos
+        # BoxLayout:
+        #     spacing : 1
+        #     canvas:
+        #         Color:
+        #             rgba: (0, 0.1, 0.25, 1)
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'RES\u0130M NO:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        #     BoxLayout:
+        #         size_hint_x: None
+        #         width: col_2
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id : delivery_id
+        #             text_size : self.size
+        #             halign : "right"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : u'\u00D6L\u00C7\u00DCLER:'
+        #     BoxLayout:
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             id: out_way_bill_id
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             text: ''
+        #             color: 0,0,0,1
+        # GridLayout:
+        # cols: 2
+        # size_hint_y: None
+        # height: 100
+        # size_hint_y: None
+        # height: self.minimum_height
+        # orientation: 'horizontal'
+        # spacing : 1
+        # padding : 1
+        # canvas:
+        #     Color:
+        #         rgba: (1, 0.1, 0.25, 1)
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # BoxLayout:
+        # size_hint_y: None
+        # height: 30
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "left"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : u' S\u00DCRE\u00C7LER:'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 05 - Girdi Kontrol'
+        #     BoxLayout:
+        #         # size_hint_y: None
+        #         # height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 10 - Girdi Deposunda Stoklama'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : '15 - CNC İşleme'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 30 – Son Kontrol'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 35-  Ambalaj'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 40-  Sevkiyat Deposu'
+        #     BoxLayout:
+        #         size_hint_y: None
+        #         height: 30
+        #         canvas:
+        #             Color:
+        #                 rgba: norm_background_color 
+        #             Rectangle:
+        #                 size: self.size
+        #                 pos: self.pos
+        #         Label:
+        #             text_size : self.size
+        #             halign : "left"
+        #             valign : "middle"
+        #             color: 0,0,0,1
+        #             text : ' 45 - Sevkiyat'
+        # BoxLayout:
+        # orientation: 'vertical'
+        # spacing : 1
+        # padding : 1
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : u' TEKN\u0130K \u015EARTNAMELER:'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : ' SS  52 – Paslanmaz çelik  Standart Satınalma Spekti'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : ' SS  03 - Karton Kutu Standart   Satınalma Spekti'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : ' SS  01 - Naylon Poşet Standart Satınalma Spekti'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : ' TLM.KKT.09 - Taşıma, Depolama, Paketleme ve Muhafaza Talimatı'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : ' TLM.KKT.01 - Girdi, Üretim ve Son Kontrol Talimatı'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : '40-  Sevkiyat Deposu'
+        # BoxLayout:
+        #     size_hint_y: None
+        #     height: 30
+        #     canvas:
+        #         Color:
+        #             rgba: norm_background_color 
+        #         Rectangle:
+        #             size: self.size
+        #             pos: self.pos
+        #     Label:
+        #         text_size : self.size
+        #         halign : "left"
+        #         valign : "middle"
+        #         color: 0,0,0,1
+        #         text : '45 - Sevkiyat'
+        # BoxLayout:
+        # # height: self.minimum_height
+        # # row_default_height: 40
+        # orientation: 'horizontal'
+        # spacing : 1
+        # padding : 1
+        # BoxLayout:
+        # size_hint_y: None
+        # height: 40
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "left"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : u'  T\u0130CARET SORUMLUSU:'
+        # BoxLayout:
+        # size_hint_y: None
+        # height: 40
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "center"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : 'Tarih/Imza'
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # BoxLayout:
+        # spacing : 1
+        # canvas:
+        # Color:
+        #     rgba: (0, 0.1, 0.25, 1)
+        # Rectangle:
+        #     size: self.size
+        #     pos: self.pos
+        # BoxLayout:
+        # size_hint_x: None
+        # width: col_2
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "right"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : "Stok miktari: "
+        # BoxLayout:
+        # size_hint_x: None
+        # width: 100
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     id: in_stok
+        #     text_size : self.size
+        #     halign : "left"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : ""
+        # BoxLayout:
+        # size_hint_x: None
+        # width: 120
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "right"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : u"Al\u0131nacak miktar: "
+        # BoxLayout:
+        # size_hint_x: None
+        # width: 90
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # TextInput:
+        #     background_color: norm_background_color
+        #     input_filter: 'int'
+        #     id: i_quantity
+        #     text: '0'
+        #     font_size : '13dp'
+        #     color: 0,0,0,1
+        # BoxLayout:
+        # size_hint_x: None
+        # width: 50
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Label:
+        #     text_size : self.size
+        #     halign : "right"
+        #     valign : "middle"
+        #     color: 0,0,0,1
+        #     text : "Imza: "
+        # BoxLayout:
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # TextInput:
+        #     background_color: norm_background_color
+        #     id: staff_signature
+        #     text: ''
+        #     font_size : '13dp'
+        #     color: 0,0,0,1
+        # BoxLayout:
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30
+        # # canvas:
+        # #     Color:
+        # #         rgba: (0, 0, 0, 1)
+        # #     Rectangle:
+        # #         size: self.size
+        # #         pos: self.pos
+        # BoxLayout:
+        # spacing : 1
+        # canvas:
+        # Color:
+        #     rgba: (0, 0.1, 0.25, 1)
+        # Rectangle:
+        #     size: self.size
+        #     pos: self.pos
+        # BoxLayout:
+        # BoxLayout:
+        # size_hint_x: None
+        # width: 100
+        # canvas:
+        #     Color:
+        #         rgba: norm_background_color 
+        #     Rectangle:
+        #         size: self.size
+        #         pos: self.pos
+        # Button:
+        #     id: ok_button
+        #     text:'Tamam'
+        #     on_release: root.decrease_stock()
+        #     disabled: False       
+        # GridLayout:
+        # cols: 1
+        # canvas:
+        # Color:
+        # rgba: (0.5,0.35,0.8,1) 
+        # Rectangle:
+        # size: self.size
+        # pos: self.pos
+        # ScrollView:
+        # size_hint : (1, 1)
+        # do_scroll_x: False
+        # do_scroll_y: True
+        # id: scroll_layout
+        # BoxLayout:
+        # ## pustota
+        # spacing : 1
+        # padding : 1
+        # size_hint_y : None
+        # height : 30

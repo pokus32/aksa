@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+#:include FirstLayout.kv
+#:include ClientLayout.kv
+#:include ProdLayout.kv
+#:include widgets.kv
+    
+<start>:
+    size_hint: 1, 1
+    tab_width: None
+    do_default_tab: False
+    tab_pos: 'top_mid'
+    save_action: 'ready'
+    CustomWidthTabb:
+        text: u'TOPTANCI'
+        on_release: first_tabb.on_open_tab()
+        FirstLayout:
+            id: first_tabb
+    CustomWidthTabb:
+        text: 'MUSTERI'
+        on_release: client_tabb.on_open_tab()
+        ClientLayout:
+            id: client_tabb
+    CustomWidthTabb:
+        text: 'URUNLER'
+        on_release: prod_tabb.on_open_tab()
+        ProdLayout:
+            id: prod_tabb

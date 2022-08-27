@@ -1,0 +1,1194 @@
+# -*- coding: utf-8 -*-
+#:import datetime datetime
+#:set col_1 150
+#:set col_2 165
+#:set row_h1 40
+#:set label_spaser 0.02
+#:set fnt_sz 13
+#:set norm_background_color (0.90,0.89,0.82,1) #(0.9, 0.9, 0.9, 0.9)
+
+<RemoveLabel>:
+    id: remove_label
+    size : self.texture_size
+    size_hint_x: None
+    width: 19
+    font_size: '23sp'
+    halign : "center"
+    valign : "middle"
+    color: 1,0,0,1
+    font_name: 'wingding.ttf'
+    text: u'\uF0FD'
+
+<PopupLayout>:
+    top_layout: top_layout
+    data_layout: data_layout
+    escape_button: escape_button
+    close_button: close_button
+    delete_mode_button: delete_mode_button
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        id: top_layout
+        size_hint_y: None
+        height: 95
+        spacing: 1
+    ScrollView:
+        size_hint : (1, 1)
+        do_scroll_x: False
+        do_scroll_y: True
+        GridLayout:
+            id: data_layout
+            size_hint_y: None
+            height: self.minimum_height
+            cols: 1
+            spacing: 1
+    BoxLayout:
+        id: bottom_layout
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 41
+        Button:
+            id: delete_mode_button
+            text: 'SIL'
+            size_hint_x: None
+            width: 111
+            background_color: (3,0,0,1)
+        Widget:
+        Button:
+            size_hint_x: None
+            width: 150
+            id: escape_button
+            text: 'IPTAL'
+            font_size: '25sp'
+            background_color: (0,1,0,1)
+        Button:
+            size_hint_x: None
+            width: 150
+            id: close_button
+            text: 'TAMAM'
+            font_size: '25sp'
+            background_color: (0,1,0,1)
+            on_press: self.disabled = True
+
+<TextInputRowLayout>:
+    id: text_input_row
+    size_hint_y : None
+    height : 37
+    id_lbl: id_lbl
+    date_i: date_i
+    type_i: type_i
+    price_tl: price_tl
+    price_dl: price_dl
+    price_eu: price_eu
+    quantity_i: quantity_i
+    balance_tl: balance_tl
+    balance_dl: balance_dl
+    balance_eu: balance_eu
+    payed_tl: payed_tl
+    payed_dl: payed_dl
+    payed_eu: payed_eu
+    total_tl: total_tl
+    total_dl: total_dl
+    total_eu: total_eu
+    tl: True
+    dl: True
+    eu: True
+    client_id: 0
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: id_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                # text : 'NO'
+        BoxLayout:
+            size_hint_x: None
+            width: 87
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            DatePicker:
+                id: date_i
+                # text_size : self.size
+                # halign : "center"
+                # valign : "middle"
+                # color: 0,0,0,1
+                # write_tab: False
+                # text: root.cur_date
+                on_text: root.make_norm_date(self)
+                # on_focus:
+                #     if self.focus: self.select_all()
+                #     if not self.focus: self.cancel_selection()
+
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: type_i
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                write_tab: False
+                # text : 'CINSI'
+        BoxLayout:
+            size_hint_x: None
+            width: 75
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: quantity_i
+                input_filter: 'float'
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : '0.0'
+                on_text: root.calc(self)
+                write_tab: False
+                on_focus:
+                    if self.focus and self.text.strip() == '0.0': self.text = ''
+                    if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                    if not self.focus and self.text.strip() == '': self.text = '0.0'
+                    if not self.focus: self.cancel_selection()
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: price_tl
+                input_filter: 'float'
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : '0.0'
+                on_text:
+                    root.calc(self)
+                write_tab: False
+                on_focus:
+                    if self.focus and self.text.strip() == '0.0': self.text = ''
+                    if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                    if not self.focus and self.text.strip() == '': self.text = '0.0'
+                    if not self.focus: self.cancel_selection()
+            TextInput:
+                id: price_dl
+                input_filter: 'float'
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : '0.0'
+                on_text: root.calc(self)
+                write_tab: False
+                on_focus:
+                    if self.focus and self.text.strip() == '0.0': self.text = ''
+                    if self.focus and self.text.strip() != '0.0': root.dl = True
+                    if root.tl or root.eu: self.active = False
+                    if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                    if not self.focus and self.text.strip() == '': self.text = '0.0'
+                    if not self.focus: self.cancel_selection()
+            TextInput:
+                id: price_eu
+                input_filter: 'float'
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : '0.0'
+                on_text: root.calc(self)
+                write_tab: False
+                on_focus:
+                    if self.focus and self.text.strip() == '0.0': self.text = ''
+                    if self.focus and self.text.strip() != '0.0': root.eu = True
+                    if root.tl or root.dl: self.active = False
+                    if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                    if not self.focus and self.text.strip() == '': self.text = '0.0'
+                    if not self.focus: self.cancel_selection()
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                TextInput:
+                    id: payed_tl
+                    input_filter: 'float'
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0.0'
+                    on_text: root.calc(self)
+                    write_tab: False
+                    on_focus:
+                        if self.focus and self.text.strip() == '0.0': self.text = ''
+                        if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                        if not self.focus and self.text.strip() == '': self.text = '0.0'
+                        if not self.focus: self.cancel_selection()
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                TextInput:
+                    id: payed_dl
+                    input_filter: 'float'
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0.0'
+                    on_text: root.calc(self)
+                    write_tab: False
+                    on_focus:
+                        if self.focus and self.text.strip() == '0.0': self.text = ''
+                        if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                        if not self.focus and self.text.strip() == '': self.text = '0.0'
+                        if not self.focus: self.cancel_selection()
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                TextInput:
+                    id: payed_eu
+                    input_filter: 'float'
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0.0'
+                    on_text: root.calc(self)
+                    write_tab: False
+                    on_focus:
+                        if self.focus and self.text.strip() == '0.0': self.text = ''
+                        if not self.focus and self.text.strip() != '': self.text = str(float(self.text))
+                        if not self.focus and self.text.strip() == '': self.text = '0.0'
+                        if not self.focus: self.cancel_selection()
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '0'
+            # Button:
+            #     text: 'OK'
+            #     id: insert_btn
+            #     on_release: root.calc(self)
+
+<TextRowLayoutNew>:
+    id: text_input_row
+    size_hint_y : None
+    height : 37
+    type_layout: type_layout
+    id_lbl: id_lbl
+    date_lbl: date_lbl
+    type_lbl: type_lbl
+    price_tl: price_tl
+    price_dl: price_dl
+    price_eu: price_eu
+    quantity_lbl: quantity_lbl
+    balance_tl: balance_tl
+    balance_dl: balance_dl
+    balance_eu: balance_eu
+    payed_tl: payed_tl
+    payed_dl: payed_dl
+    payed_eu: payed_eu
+    total_tl: total_tl
+    total_dl: total_dl
+    total_eu: total_eu
+    norm_bg_color: (0.90,0.89,0.82,1)
+    is_selected: 0
+    client_id: 0
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: id_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'NO'
+        BoxLayout:
+            size_hint_x: None
+            width: 87
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: date_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text: 'TARIH'
+        BoxLayout:
+            id: type_layout
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: type_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'CINS'
+        BoxLayout:
+            size_hint_x: None
+            width: 75
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: quantity_lbl
+                input_filter: 'float'
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'ADET'
+                
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: price_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20BA'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                    
+                Label:
+                    id: price_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '$'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                    
+                Label:
+                    id: price_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20AC'
+                
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20BA'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '$'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: total_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20AC'
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: payed_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20BA'
+                    
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: payed_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '$'
+                    
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: payed_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20AC'
+                    
+        BoxLayout:
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_tl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20BA'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '$'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20AC'
+
+<TextRowLayoutHeader>:
+    id: text_input_row
+    size_hint_y : None
+    height : 57
+    name: ''
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: id_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'NO'
+        BoxLayout:
+            size_hint_x: None
+            width: 87
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: date_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text: 'TARIH'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: type_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'CINS'
+        BoxLayout:
+            size_hint_x: None
+            width: 75
+            canvas:
+                Color:
+                    rgba: (0.90,0.89,0.82,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: quantity_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'ADET'
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'FIYAT'
+            BoxLayout:
+                spacing: 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: price_tl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text : u'\u20BA'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                        
+                    Label:
+                        id: price_dl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text : '$'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                        
+                    Label:
+                        id: price_eu
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20AC'
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'TOPLAM'
+            BoxLayout:
+                spacing: 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: total_tl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20BA'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: total_dl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: '$'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: total_eu
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20AC'
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'ODENEN'
+            BoxLayout:
+                spacing: 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: payed_tl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20BA'
+                        
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: payed_dl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: '$'
+                        
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: payed_eu
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20AC'
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 1
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: (0.90,0.89,0.82,1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'BAKIYE'        
+            BoxLayout:
+                spacing: 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_tl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20BA'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_dl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: '$'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: (0.90,0.89,0.82,1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_eu
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20AC'
+
+
+<MainRowLayout>:
+    size_hint_y : None
+    height : 57
+    id_lbl: id_lbl
+    name_lbl: name_lbl
+    balance_layout: balance_layout
+    label_layout: label_layout
+    norm_bg_color: (0.90,0.89,0.82,1)
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ClicablLabel:
+                id: id_lbl
+                client_id: 0
+                client_name: name_lbl.text
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'NO'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ClicablLabel:
+                id: name_lbl
+                client_id: 0
+                client_name: self.text
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : 'ADI'
+        BoxLayout:
+            id: balance_layout
+            orientation: 'vertical'
+            spacing: 1
+            size_hint_x: None
+            width: 211
+            BoxLayout:
+                id: label_layout
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text : 'BAKIYE'        
+            BoxLayout:
+                spacing: 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: root.norm_bg_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_tl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20BA'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: root.norm_bg_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_dl
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: '$'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: root.norm_bg_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: balance_eu
+                        text_size : self.size
+                        halign : "center"
+                        valign : "middle"
+                        color: 0,0,0,1
+                        text: u'\u20AC'
+
+<DatePicker>:
+    pHint: .3, .3
+
+<FirstLayout>:
+    scroll_layout: scroll_layout
+    GridLayout:
+        orientation : 'lr-tb'
+        cols: 3
+        size_hint_y : 1
+        BoxLayout:
+            orientation: 'vertical'
+            ## levaya pustota
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x : None
+            width : 700
+            ## seredina
+            BoxLayout:
+                size_hint_y : None
+                height : 69
+                spacing : 1
+                padding : 1
+                canvas:
+                    Color:
+                        rgba: (0, 0.1, 0.25, 1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    AsyncImage:
+                        source: 'logo_kv.jpg'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: main_label
+                        font_size: '25sp'
+                        color: 0,0,0,1
+                        text : u'AK-SA RAPOR'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    Label:
+                        font_size: '25sp'
+                        color: 0,0,0,1
+                        text: ''
+            MainRowLayout:
+                padding : 1
+            ScrollView:
+                id: scroll_layout
+                size_hint : (1, 1)
+                do_scroll_x: False
+                do_scroll_y: True
+                # size_hint_x : None
+                # width : 700
+                # pos_hint defaults to 1,1 so no need to declare it
+                # GridLayout:
+                #     id: scrolling_layout
+                #     cols: 1 
+                #     orientation: 'vertical'
+                #     padding: 1
+                #     spacing: 1
+                #     # you do not need to manually bind to setter('height') in
+                #     # python - perfectly possible with kv lang
+                #     # this allows for height to update depending on the
+                #     # collective heights of its child widgets
+                #     size_hint_y: None
+                #     height: self.minimum_height
+                #     canvas:
+                #         Color:
+                #             rgba: (0, 0.13, 0.25, 1)
+                #         Rectangle:
+                #             size: self.size
+                #             pos: self.pos
+                #     # for scroll to show/work there must be more widgets 
+                #     # then can fit root.height. If not there is no need 
+                #     # for scrollview :)
+                #     #<----- widgets here ----->
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                #pustota
+        BoxLayout:
+            orientation: 'horizontal'
+            ## pravaya pustota

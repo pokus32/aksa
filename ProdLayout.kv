@@ -1,0 +1,208 @@
+# -*- coding: utf-8 -*-
+#:set norm_background_color (0.90,0.89,0.82,1)
+
+
+<RemoveLabel>:
+    id: remove_label
+    size : self.texture_size
+    size_hint_x: None
+    width: 19
+    font_size: '23sp'
+    halign : "center"
+    valign : "middle"
+    color: 1,0,0,1
+    font_name: 'wingding.ttf'
+    text: u'\uF0FD'
+
+
+<ProdLayout>:
+    scroll_layout: scroll_layout
+    data_input: data_input
+    main_label: main_label
+    GridLayout:
+        orientation : 'lr-tb'
+        cols: 3
+        size_hint_y : 1
+        BoxLayout:
+            orientation: 'vertical'
+            ## levaya pustota
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x : None
+            width : 700
+            ## seredina
+            BoxLayout:
+                size_hint_y : None
+                height : 69
+                spacing : 1
+                padding : 1
+                canvas:
+                    Color:
+                        rgba: (0, 0.1, 0.25, 1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    AsyncImage:
+                        source: 'logo_kv.jpg'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        id: main_label
+                        font_size: '21sp'
+                        color: 0,0,0,1
+                        text : u'URUNLER LITESI'
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: norm_background_color 
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint_x : None
+                    width : 100
+                    Label:
+                        font_size: '25sp'
+                        color: 0,0,0,1
+                        text: ''
+            GridLayout:
+                id: input_area
+                size_hint_y: None
+                height: self.minimum_height
+                rows: 1
+                ProdDataInput:
+                    id: data_input
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                #pustota
+            ScrollView:
+                id: scroll_layout
+                size_hint : (1, 1)
+                do_scroll_x: False
+                do_scroll_y: True
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                #pustota
+        BoxLayout:
+            orientation: 'horizontal'
+            ## pravaya pustota
+
+<ProdDataInput>:
+    size_hint_y: None
+    height: self.minimum_height
+    cols: 1
+    spacing: 1
+    new_button: new_button
+    save_button: save_button
+    name_input: name_input
+    del_button: del_button
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 1
+        canvas:
+            Color:
+                rgba: norm_background_color 
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            id: name_input
+            text_size : self.size
+            size_hint_y: None
+            height: 37
+            halign : "center"
+            valign : "middle"
+            color: 0,0,0,1
+            text : ''
+            write_tab: False
+    GridLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        rows: 1
+        spacing: 2
+        Button:
+            id: new_button
+            prod_id: 0
+            size_hint_x: None
+            width: 100
+            text: 'YENI'
+        Button:
+            id: del_button
+            size_hint_x: None
+            width: 100
+            text: 'SIL'
+            background_color: (3,0,0,1)
+        BoxLayout:
+            size_hint_y: None
+            height: 37
+        Button:
+            id: save_button
+            prod_id: 0
+            size_hint_x: None
+            width: 100
+            text: 'TAMAM'
+
+<ProdRowLayout>:
+    size_hint_y : None
+    height : 37
+    norm_bg_color: (0.90,0.89,0.82,1)
+    prod_id: ''
+    prod_name: ''
+    id_lbl: id_lbl
+    name_lbl: name_lbl
+    name_layout: name_layout
+    is_selected: 0
+    BoxLayout:
+        spacing: 1
+        BoxLayout:
+            size_hint_x: None
+            width: 35
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ClicablLabel:
+                id: id_lbl
+                text_size : self.size
+                halign : "center"
+                valign : "middle"
+                color: 0,0,0,1
+                text : root.prod_id
+        BoxLayout:
+            id: name_layout
+            canvas:
+                Color:
+                    rgba: root.norm_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: ''
+                size_hint_x: None
+                width: 10
+            ClicablLabel:
+                id: name_lbl
+                data: ()
+                text_size : self.size
+                halign : "left"
+                valign : "middle"
+                color: 0,0,0,1
+                text : root.prod_name
