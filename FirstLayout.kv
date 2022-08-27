@@ -384,10 +384,6 @@
                     valign : "middle"
                     color: 0,0,0,1
                     text: '0'
-            # Button:
-            #     text: 'OK'
-            #     id: insert_btn
-            #     on_release: root.calc(self)
 
 <TextRowLayoutNew>:
     id: text_input_row
@@ -980,32 +976,39 @@
 
 <MainRowLayout>:
     size_hint_y : None
-    height : "57dp"
+    height : "41dp"
     id_lbl: id_lbl
     name_lbl: name_lbl
-    balance_layout: balance_layout
-    label_layout: label_layout
     norm_bg_color: (0.90,0.89,0.82,1)
+    orientation: 'horizontal'
+    spacing: "1dp"
+    canvas:
+        Color:
+            rgba: [0.5,0.5,0.5,1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
     BoxLayout:
+        size_hint_x: None
+        width: "25dp"
+        canvas:
+            Color:
+                rgba: root.norm_bg_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        ClicablLabel:
+            id: id_lbl
+            client_id: 0
+            client_name: name_lbl.text
+            text_size : self.size
+            halign : "center"
+            valign : "middle"
+            color: 0,0,0,1
+            text : 'NO'
+    BoxLayout:
+        orientation: 'vertical'
         spacing: "1dp"
-        BoxLayout:
-            size_hint_x: None
-            width: "35dp"
-            canvas:
-                Color:
-                    rgba: root.norm_bg_color
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            ClicablLabel:
-                id: id_lbl
-                client_id: 0
-                client_name: name_lbl.text
-                text_size : self.size
-                halign : "center"
-                valign : "middle"
-                color: 0,0,0,1
-                text : 'NO'
         BoxLayout:
             canvas:
                 Color:
@@ -1023,13 +1026,8 @@
                 color: 0,0,0,1
                 text : 'ADI'
         BoxLayout:
-            id: balance_layout
-            orientation: 'vertical'
             spacing: "1dp"
-            size_hint_x: None
-            width: "211dp"
             BoxLayout:
-                id: label_layout
                 canvas:
                     Color:
                         rgba: root.norm_bg_color
@@ -1037,55 +1035,40 @@
                         size: self.size
                         pos: self.pos
                 Label:
+                    id: balance_tl
                     text_size : self.size
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
-                    text : 'BAKIYE'        
+                    text: u'\u20BA'
             BoxLayout:
-                spacing: "1dp"
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: root.norm_bg_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    Label:
-                        id: balance_tl
-                        text_size : self.size
-                        halign : "center"
-                        valign : "middle"
-                        color: 0,0,0,1
-                        text: u'\u20BA'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: root.norm_bg_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    Label:
-                        id: balance_dl
-                        text_size : self.size
-                        halign : "center"
-                        valign : "middle"
-                        color: 0,0,0,1
-                        text: '$'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: root.norm_bg_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    Label:
-                        id: balance_eu
-                        text_size : self.size
-                        halign : "center"
-                        valign : "middle"
-                        color: 0,0,0,1
-                        text: u'\u20AC'
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_dl
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: '$'
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: root.norm_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    id: balance_eu
+                    text_size : self.size
+                    halign : "center"
+                    valign : "middle"
+                    color: 0,0,0,1
+                    text: u'\u20AC'
 
 <DatePicker>:
     pHint: .3, .3

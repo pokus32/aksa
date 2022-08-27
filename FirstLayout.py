@@ -132,8 +132,8 @@ class FirstLayout(BoxLayout):
 				norm_bg_color = row2_color_fl
 				jj = 1
 			box = MainRowLayout()
-			box.height = 37
-			box.balance_layout.remove_widget(box.label_layout)
+			box.height = 41
+			# box.balance_layout.remove_widget(box.label_layout)
 			box.id_lbl.bind(on_release=self.open_popup)
 			box.name_lbl.bind(on_release=self.open_popup)
 			self.inside_layout.add_widget(box)
@@ -142,9 +142,9 @@ class FirstLayout(BoxLayout):
 			box.ids.id_lbl.client_id = row[0]
 			box.ids.name_lbl.client_id = row[0]
 			box.ids.name_lbl.text = str(row[1])
-			box.ids.balance_tl.text = '{:,.2f}'.format(row[2]) if row[2] else '0.0'
-			box.ids.balance_dl.text = '{:,.2f}'.format(row[3]) if row[3] else '0.0'
-			box.ids.balance_eu.text = '{:,.2f}'.format(row[4]) if row[4] else '0.0'
+			box.ids.balance_tl.text = '{:,.2f}₺'.format(row[2]) if row[2] else "" #'0.0₺'
+			box.ids.balance_dl.text = '{:,.2f}$'.format(row[3]) if row[3] else "" #'0.0$'
+			box.ids.balance_eu.text = '{:,.2f}€'.format(row[4]) if row[4] else "" #'0.0€'
 
 	def insert_new_client(self, arg=None):
 		db.insert_new_client(arg.name_lbl.text)
