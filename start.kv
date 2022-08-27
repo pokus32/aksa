@@ -2,13 +2,24 @@
 #:include FirstLayout.kv
 #:include ClientLayout.kv
 #:include ProdLayout.kv
-#:include widgets.kv
+
+
+<ClicablLabel@ButtonBehavior+Label>:
+
+<CustomWidthTabb@TabbedPanelItem>
+    width: self.texture_size[0]
+    padding: 10, 0
+    size_hint_x: None
     
 <start>:
-    size_hint: 1, 1
-    tab_width: None
+    tab_pos: 'bottom_mid'
     do_default_tab: False
-    tab_pos: 'top_mid'
+    tab_width: "130dp"
+    tab_height: "27dp"
+#    size_hint: 1, 1
+#    tab_width: None
+#    do_default_tab: False
+#    tab_pos: 'top_mid'
     save_action: 'ready'
     CustomWidthTabb:
         text: u'TOPTANCI'

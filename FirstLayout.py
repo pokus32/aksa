@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
-# from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
-from calendar_ui import DatePicker, CalendarWidget
-from kivy.properties import ObjectProperty, ListProperty
-from widgets import *
+from kivy.properties import ObjectProperty
+from kivy.clock import Clock
+from calendar_ui import DatePicker
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from db import DataBase
 from datetime import datetime
-import time
 from kivy.uix.dropdown import DropDown
 
 db = DataBase()
@@ -212,14 +209,14 @@ class FirstLayout(BoxLayout):
 				main_layout.data_layout.add_widget(box)
 		input_row.client_id = arg.client_id
 		client = arg.client_name
-		ttl = client + '                         Turk Lirasi: ' + \
+		ttl = client + '\nTurk Lirasi: ' + \
 			'{:,.2f}'.format(blns_tl) + '        Dolar: ' + \
 			'{:,.2f}'.format(blns_dl) + '          Euro: ' + \
 			'{:,.2f}'.format(blns_eu)
 		self.popup = Popup(title = ttl,
                       content = main_layout, 
-                      size_hint =(None, None), size =(Window.width - 10 , Window.height - 10),
-                      title_color = [1,0,0,1], title_size = 40)
+                      size_hint =(None, None), size =(Window.width, Window.height),
+                      title_color = [1,0,0,1], title_size = "25dp")
 		main_layout.close_button.bind(on_release = self.close_popup)
 		main_layout.escape_button.bind(on_press = self.escape_popup)
 		main_layout.delete_mode_button.bind(on_press = self.remove_rows)

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from kivy.app import App
 from kivy.uix.tabbedpanel import TabbedPanel
+from kivy.clock import Clock
 
 from FirstLayout import FirstLayout
 from ClientLayout import ClientLayout
 from ProdLayout import ProdLayout
-from widgets import *
 
 
 class Start(TabbedPanel):

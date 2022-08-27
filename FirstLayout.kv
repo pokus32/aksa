@@ -11,8 +11,8 @@
     id: remove_label
     size : self.texture_size
     size_hint_x: None
-    width: 19
-    font_size: '23sp'
+    width: "19dp"
+    font_size: '23dp'
     halign : "center"
     valign : "middle"
     color: 1,0,0,1
@@ -30,8 +30,8 @@
         orientation: 'vertical'
         id: top_layout
         size_hint_y: None
-        height: 95
-        spacing: 1
+        height: "95dp"
+        spacing: "1dp"
     ScrollView:
         size_hint : (1, 1)
         do_scroll_x: False
@@ -41,39 +41,37 @@
             size_hint_y: None
             height: self.minimum_height
             cols: 1
-            spacing: 1
+            spacing: "1dp"
     BoxLayout:
         id: bottom_layout
         orientation: 'horizontal'
         size_hint_y: None
-        height: 41
+        height: "29dp"
         Button:
             id: delete_mode_button
             text: 'SIL'
             size_hint_x: None
-            width: 111
+            width: "101dp"
             background_color: (3,0,0,1)
         Widget:
         Button:
             size_hint_x: None
-            width: 150
+            width: "101dp"
             id: escape_button
             text: 'IPTAL'
-            font_size: '25sp'
             background_color: (0,1,0,1)
         Button:
             size_hint_x: None
-            width: 150
+            width: "101dp"
             id: close_button
             text: 'TAMAM'
-            font_size: '25sp'
             background_color: (0,1,0,1)
             on_press: self.disabled = True
 
 <TextInputRowLayout>:
     id: text_input_row
     size_hint_y : None
-    height : 37
+    height : "37dp"
     id_lbl: id_lbl
     date_i: date_i
     type_i: type_i
@@ -95,10 +93,10 @@
     eu: True
     client_id: 0
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -114,7 +112,7 @@
                 # text : 'NO'
         BoxLayout:
             size_hint_x: None
-            width: 87
+            width: "87dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -151,7 +149,7 @@
                 # text : 'CINSI'
         BoxLayout:
             size_hint_x: None
-            width: 75
+            width: "75dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -231,7 +229,7 @@
                     if not self.focus and self.text.strip() == '': self.text = '0.0'
                     if not self.focus: self.cancel_selection()
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -275,7 +273,7 @@
                     color: 0,0,0,1
                     text: '0'
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -343,7 +341,7 @@
                         if not self.focus and self.text.strip() == '': self.text = '0.0'
                         if not self.focus: self.cancel_selection()
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -394,7 +392,7 @@
 <TextRowLayoutNew>:
     id: text_input_row
     size_hint_y : None
-    height : 37
+    height : "37dp"
     type_layout: type_layout
     id_lbl: id_lbl
     date_lbl: date_lbl
@@ -416,10 +414,10 @@
     is_selected: 0
     client_id: 0
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -435,7 +433,7 @@
                 text : 'NO'
         BoxLayout:
             size_hint_x: None
-            width: 87
+            width: "87dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -466,7 +464,7 @@
                 text : 'CINS'
         BoxLayout:
             size_hint_x: None
-            width: 75
+            width: "75dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -483,7 +481,7 @@
                 text : 'ADET'
                 
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -530,7 +528,7 @@
                     text: u'\u20AC'
                 
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -574,7 +572,7 @@
                     color: 0,0,0,1
                     text: u'\u20AC'
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -621,7 +619,7 @@
                     text: u'\u20AC'
                     
         BoxLayout:
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -668,13 +666,13 @@
 <TextRowLayoutHeader>:
     id: text_input_row
     size_hint_y : None
-    height : 57
+    height : "57dp"
     name: ''
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -690,7 +688,7 @@
                 text : 'NO'
         BoxLayout:
             size_hint_x: None
-            width: 87
+            width: "87dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -720,7 +718,7 @@
                 text : 'CINS'
         BoxLayout:
             size_hint_x: None
-            width: 75
+            width: "75dp"
             canvas:
                 Color:
                     rgba: (0.90,0.89,0.82,1)
@@ -736,7 +734,7 @@
                 text : 'ADET'
         BoxLayout:
             orientation: 'vertical'
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -751,7 +749,7 @@
                     color: 0,0,0,1
                     text : 'FIYAT'
             BoxLayout:
-                spacing: 1
+                spacing: "1dp"
                 BoxLayout:
                     canvas:
                         Color:
@@ -798,7 +796,7 @@
                         text: u'\u20AC'
         BoxLayout:
             orientation: 'vertical'
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -813,7 +811,7 @@
                     color: 0,0,0,1
                     text : 'TOPLAM'
             BoxLayout:
-                spacing: 1
+                spacing: "1dp"
                 BoxLayout:
                     canvas:
                         Color:
@@ -858,7 +856,7 @@
                         text: u'\u20AC'
         BoxLayout:
             orientation: 'vertical'
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -873,7 +871,7 @@
                     color: 0,0,0,1
                     text : 'ODENEN'
             BoxLayout:
-                spacing: 1
+                spacing: "1dp"
                 BoxLayout:
                     canvas:
                         Color:
@@ -920,7 +918,7 @@
                         text: u'\u20AC'
         BoxLayout:
             orientation: 'vertical'
-            spacing: 1
+            spacing: "1dp"
             BoxLayout:
                 canvas:
                     Color:
@@ -935,7 +933,7 @@
                     color: 0,0,0,1
                     text : 'BAKIYE'        
             BoxLayout:
-                spacing: 1
+                spacing: "1dp"
                 BoxLayout:
                     canvas:
                         Color:
@@ -982,17 +980,17 @@
 
 <MainRowLayout>:
     size_hint_y : None
-    height : 57
+    height : "57dp"
     id_lbl: id_lbl
     name_lbl: name_lbl
     balance_layout: balance_layout
     label_layout: label_layout
     norm_bg_color: (0.90,0.89,0.82,1)
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -1027,9 +1025,9 @@
         BoxLayout:
             id: balance_layout
             orientation: 'vertical'
-            spacing: 1
+            spacing: "1dp"
             size_hint_x: None
-            width: 211
+            width: "211dp"
             BoxLayout:
                 id: label_layout
                 canvas:
@@ -1045,7 +1043,7 @@
                     color: 0,0,0,1
                     text : 'BAKIYE'        
             BoxLayout:
-                spacing: 1
+                spacing: "1dp"
                 BoxLayout:
                     canvas:
                         Color:
@@ -1097,20 +1095,15 @@
     GridLayout:
         orientation : 'lr-tb'
         cols: 3
-        size_hint_y : 1
+        size_hint_y : "1dp"
         BoxLayout:
             orientation: 'vertical'
-            ## levaya pustota
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint_x : None
-            width : 700
-            ## seredina
+            # seredina
             BoxLayout:
                 size_hint_y : None
-                height : 69
-                spacing : 1
-                padding : 1
+                height : "25dp"
+                spacing : "1dp"
+                padding : "1dp"
                 canvas:
                     Color:
                         rgba: (0, 0.1, 0.25, 1)
@@ -1124,71 +1117,19 @@
                         Rectangle:
                             size: self.size
                             pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    AsyncImage:
-                        source: 'logo_kv.jpg'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color 
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
                     Label:
                         id: main_label
-                        font_size: '25sp'
+                        font_size: '21dp'
                         color: 0,0,0,1
-                        text : u'AK-SA RAPOR'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color 
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    Label:
-                        font_size: '25sp'
-                        color: 0,0,0,1
-                        text: ''
+                        text : u'RAPOR'
             MainRowLayout:
-                padding : 1
+                padding : "1dp"
             ScrollView:
                 id: scroll_layout
                 size_hint : (1, 1)
                 do_scroll_x: False
                 do_scroll_y: True
-                # size_hint_x : None
-                # width : 700
-                # pos_hint defaults to 1,1 so no need to declare it
-                # GridLayout:
-                #     id: scrolling_layout
-                #     cols: 1 
-                #     orientation: 'vertical'
-                #     padding: 1
-                #     spacing: 1
-                #     # you do not need to manually bind to setter('height') in
-                #     # python - perfectly possible with kv lang
-                #     # this allows for height to update depending on the
-                #     # collective heights of its child widgets
-                #     size_hint_y: None
-                #     height: self.minimum_height
-                #     canvas:
-                #         Color:
-                #             rgba: (0, 0.13, 0.25, 1)
-                #         Rectangle:
-                #             size: self.size
-                #             pos: self.pos
-                #     # for scroll to show/work there must be more widgets 
-                #     # then can fit root.height. If not there is no need 
-                #     # for scrollview :)
-                #     #<----- widgets here ----->
             BoxLayout:
                 size_hint_y: None
-                height: 1
+                height: "1dp"
                 #pustota
-        BoxLayout:
-            orientation: 'horizontal'
-            ## pravaya pustota

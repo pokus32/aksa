@@ -9,20 +9,14 @@
     GridLayout:
         orientation : 'rl-tb'
         cols: 3
-        size_hint_y : 1
+        size_hint_y : "1dp"
         BoxLayout:
             orientation: 'vertical'
-            ## levaya pustota
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint_x : None
-            width : 700
-            ## seredina
             BoxLayout:
                 size_hint_y : None
-                height : 69
-                spacing : 1
-                padding : 1
+                height : "25dp"
+                spacing : "1dp"
+                padding : "1dp"
                 canvas:
                     Color:
                         rgba: (0, 0.1, 0.25, 1)
@@ -36,35 +30,11 @@
                         Rectangle:
                             size: self.size
                             pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    AsyncImage:
-                        source: 'logo_kv.jpg'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
                     Label:
                         id: main_label
-                        font_size: '21sp'
+                        font_size: '21dp'
                         color: 0,0,0,1
                         text : u'MUSTERI LITESI'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    Label:
-                        font_size: '25sp'
-                        color: 0,0,0,1
-                        text: ''
             GridLayout:
                 id: input_area
                 size_hint_y: None
@@ -74,7 +44,7 @@
                     id: data_input
             BoxLayout:
                 size_hint_y: None
-                height: 1
+                height: "1dp"
                 #pustota
             ScrollView:
                 id: scroll_layout
@@ -83,17 +53,13 @@
                 do_scroll_y: True
             BoxLayout:
                 size_hint_y: None
-                height: 1
-                #pustota
-        BoxLayout:
-            orientation: 'horizontal'
-            ## pravaya pustota
+                height: "1dp"
 
 <DataInput>:
     size_hint_y: None
     height: self.minimum_height
     cols: 1
-    spacing: 1
+    spacing: "1dp"
     new_button: new_button
     save_button: save_button
     name_input: name_input
@@ -108,7 +74,7 @@
     number_input: number_input
     GridLayout:
         size_hint_y: None
-        height: self.minimum_height
+        height: "29dp"
         rows: 1
         canvas:
             Color:
@@ -119,8 +85,6 @@
         TextInput:
             id: name_input
             text_size : self.size
-            size_hint_y: None
-            height: 37
             halign : "center"
             valign : "middle"
             color: 0,0,0,1
@@ -128,7 +92,7 @@
             write_tab: False
     GridLayout:
         size_hint_y: None
-        height: self.minimum_height
+        height: "29dp"
         rows: 1
         canvas:
             Color:
@@ -138,8 +102,6 @@
                 pos: self.pos
         Label:
             text_size : self.size
-            size_hint_y: None
-            height: 27
             halign : "center"
             valign : "middle"
             color: 0,0,0,1
@@ -148,11 +110,11 @@
         cols: 3
         size_hint_y: None
         height: self.minimum_height
-        spacing: 1
+        spacing: "1dp"
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -161,8 +123,6 @@
                     pos: self.pos
             Label:
                 text_size : self.size
-                size_hint_y: None
-                height: 27
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -170,7 +130,7 @@
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -179,8 +139,6 @@
                     pos: self.pos
             Label:
                 text_size : self.size
-                size_hint_y: None
-                height: 27
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -188,7 +146,7 @@
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -197,8 +155,6 @@
                     pos: self.pos
             Label:
                 text_size : self.size
-                size_hint_y: None
-                height: 27
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -207,11 +163,11 @@
         cols: 3
         size_hint_y: None
         height: self.minimum_height
-        spacing: 1
+        spacing: "1dp"
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -221,8 +177,6 @@
             TextInput:
                 id: client_name_input
                 text_size : self.size
-                size_hint_y: None
-                height: 37
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -231,7 +185,7 @@
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -241,8 +195,6 @@
             TextInput:
                 id: client_surname_input
                 text_size : self.size
-                size_hint_y: None
-                height: 37
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -251,7 +203,7 @@
         GridLayout:
             rows: 1
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             canvas:
                 Color:
                     rgba: norm_background_color
@@ -261,8 +213,6 @@
             TextInput:
                 id: client_phone_input
                 text_size : self.size
-                size_hint_y: None
-                height: 37
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -272,10 +222,10 @@
         size_hint_y: None
         height: self.minimum_height
         rows: 2
-        spacing: 1
+        spacing: "1dp"
         GridLayout:
             size_hint_y: None
-            height: self.minimum_height
+            height: "29dp"
             rows: 1
             canvas:
                 Color:
@@ -285,8 +235,6 @@
                     pos: self.pos
             Label:
                 text_size : self.size
-                size_hint_y: None
-                height: 27
                 halign : "center"
                 valign : "middle"
                 color: 0,0,0,1
@@ -295,12 +243,12 @@
             size_hint_y: None
             height: self.minimum_height
             cols: 1
-            spacing: 1
+            spacing: "1dp"
             GridLayout:
                 size_hint_y: None
-                height: self.minimum_height
+                height: "29dp"
                 rows: 1
-                spacing: 1
+                spacing: "1dp"
                 canvas:
                     Color:
                         rgba: norm_background_color
@@ -309,19 +257,15 @@
                         pos: self.pos
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'IL:'
                     size_hint_x: None
-                    width: 50
+                    width: "50dp"
                 TextInput:
                     id: province_input
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -329,19 +273,15 @@
                     write_tab: False
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'ILCE:'
                     size_hint_x: None
-                    width: 50
+                    width: "50dp"
                 TextInput:
                     id: district_input
-                    text_size : self.size
-                    size_hint_y: None
-                    height: 37
+                    height: "37dp"
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -349,19 +289,15 @@
                     write_tab: False
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'SEMT:'
                     size_hint_x: None
-                    width: 50
+                    width: "50dp"
                 TextInput:
                     id: locality_input
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -369,9 +305,9 @@
                     write_tab: False
             GridLayout:
                 size_hint_y: None
-                height: self.minimum_height
+                height: "29dp"
                 rows: 1
-                spacing: 1
+                spacing: "1dp"
                 canvas:
                     Color:
                         rgba: norm_background_color
@@ -380,19 +316,15 @@
                         pos: self.pos
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'CADDE:'
                     size_hint_x: None
-                    width: 70
+                    width: "70dp"
                 TextInput:
                     id: street_input
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -400,19 +332,15 @@
                     write_tab: False
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'SOKAK:'
                     size_hint_x: None
-                    width: 70
+                    width: "70dp"
                 TextInput:
                     id: substreet_input
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -420,21 +348,17 @@
                     write_tab: False
                 Label:
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
                     text : 'NUMARA:'
                     size_hint_x: None
-                    width: 75
+                    width: "75dp"
                 TextInput:
                     id: number_input
                     text_size : self.size
-                    size_hint_y: None
-                    height: 37
                     size_hint_x: None
-                    width: 45
+                    width: "45dp"
                     halign : "center"
                     valign : "middle"
                     color: 0,0,0,1
@@ -442,37 +366,35 @@
                     write_tab: False
     GridLayout:
         size_hint_y: None
-        height: self.minimum_height
+        height: '29dp'
         rows: 1
-        spacing: 2
+        spacing: "2dp"
         Button:
             id: new_button
             # client_id: 0
             size_hint_x: None
-            width: 100
+            width: "100dp"
             text: 'YENI'
         BoxLayout:
-            size_hint_y: None
-            height: 37
         Button:
             id: save_button
             client_id: 0
             size_hint_x: None
-            width: 100
+            width: "100dp"
             text: 'TAMAM'
 
 <ClientRowLayout>:
     size_hint_y : None
-    height : 37
+    height : "37dp"
     norm_bg_color: (0.90,0.89,0.82,1)
     client_id: ''
     client_name: ''
     name_lbl: name_lbl
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -496,7 +418,7 @@
             Label:
                 text: ''
                 size_hint_x: None
-                width: 10
+                width: "10dp"
             ClicablLabel:
                 id: name_lbl
                 data: ()

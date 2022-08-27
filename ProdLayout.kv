@@ -6,8 +6,8 @@
     id: remove_label
     size : self.texture_size
     size_hint_x: None
-    width: 19
-    font_size: '23sp'
+    width: "19dp"
+    font_size: '23dp'
     halign : "center"
     valign : "middle"
     color: 1,0,0,1
@@ -25,17 +25,12 @@
         size_hint_y : 1
         BoxLayout:
             orientation: 'vertical'
-            ## levaya pustota
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint_x : None
-            width : 700
             ## seredina
             BoxLayout:
                 size_hint_y : None
-                height : 69
-                spacing : 1
-                padding : 1
+                height : "25dp"
+                spacing : "1dp"
+                padding : "1dp"
                 canvas:
                     Color:
                         rgba: (0, 0.1, 0.25, 1)
@@ -49,35 +44,10 @@
                         Rectangle:
                             size: self.size
                             pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    AsyncImage:
-                        source: 'logo_kv.jpg'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color 
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
                     Label:
                         id: main_label
-                        font_size: '21sp'
                         color: 0,0,0,1
                         text : u'URUNLER LITESI'
-                BoxLayout:
-                    canvas:
-                        Color:
-                            rgba: norm_background_color 
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    size_hint_x : None
-                    width : 100
-                    Label:
-                        font_size: '25sp'
-                        color: 0,0,0,1
-                        text: ''
             GridLayout:
                 id: input_area
                 size_hint_y: None
@@ -87,7 +57,7 @@
                     id: data_input
             BoxLayout:
                 size_hint_y: None
-                height: 1
+                height: "1dp"
                 #pustota
             ScrollView:
                 id: scroll_layout
@@ -96,24 +66,21 @@
                 do_scroll_y: True
             BoxLayout:
                 size_hint_y: None
-                height: 1
+                height: "1dp"
                 #pustota
-        BoxLayout:
-            orientation: 'horizontal'
-            ## pravaya pustota
 
 <ProdDataInput>:
     size_hint_y: None
     height: self.minimum_height
     cols: 1
-    spacing: 1
+    spacing: "1dp"
     new_button: new_button
     save_button: save_button
     name_input: name_input
     del_button: del_button
     GridLayout:
         size_hint_y: None
-        height: self.minimum_height
+        height: '29dp'
         rows: 1
         canvas:
             Color:
@@ -124,8 +91,6 @@
         TextInput:
             id: name_input
             text_size : self.size
-            size_hint_y: None
-            height: 37
             halign : "center"
             valign : "middle"
             color: 0,0,0,1
@@ -133,34 +98,32 @@
             write_tab: False
     GridLayout:
         size_hint_y: None
-        height: self.minimum_height
+        height: '29dp'
         rows: 1
-        spacing: 2
+        spacing: "2dp"
         Button:
             id: new_button
             prod_id: 0
             size_hint_x: None
-            width: 100
+            width: "100dp"
             text: 'YENI'
         Button:
             id: del_button
             size_hint_x: None
-            width: 100
+            width: "100dp"
             text: 'SIL'
             background_color: (3,0,0,1)
         BoxLayout:
-            size_hint_y: None
-            height: 37
         Button:
             id: save_button
             prod_id: 0
             size_hint_x: None
-            width: 100
+            width: "100dp"
             text: 'TAMAM'
 
 <ProdRowLayout>:
     size_hint_y : None
-    height : 37
+    height : "29dp"
     norm_bg_color: (0.90,0.89,0.82,1)
     prod_id: ''
     prod_name: ''
@@ -169,10 +132,10 @@
     name_layout: name_layout
     is_selected: 0
     BoxLayout:
-        spacing: 1
+        spacing: "1dp"
         BoxLayout:
             size_hint_x: None
-            width: 35
+            width: "35dp"
             canvas:
                 Color:
                     rgba: root.norm_bg_color
@@ -197,7 +160,7 @@
             Label:
                 text: ''
                 size_hint_x: None
-                width: 10
+                width: "10dp"
             ClicablLabel:
                 id: name_lbl
                 data: ()
