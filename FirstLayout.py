@@ -132,7 +132,7 @@ class FirstLayout(BoxLayout):
                 norm_bg_color = row2_color_fl
                 jj = 1
             box = MainRowLayout()
-            box.height = 41
+            # box.height = 41
             # box.balance_layout.remove_widget(box.label_layout)
             box.id_lbl.bind(on_release=self.open_popup)
             box.name_lbl.bind(on_release=self.open_popup)
